@@ -1,0 +1,16 @@
+version: "3.8"  # Specifies the version of Docker Compose
+
+services:
+  goapp:
+    build:
+      context: .  # Use the current directory
+      dockerfile: Dockerfile  # Specify the Dockerfile
+    container_name: goapp-container  # Name of the container
+    ports:
+      - "1234:1234"  # Map host port 8080 to container port 8080
+    volumes:
+      - .:/app  # Mount the current directory to the container's /app directory
+    command: ./main  # Command to run the Go binary
+    environment:
+      - GO_ENV=development  # Example of environment variables
+    restart: always  # Automatically restart the container if it crashes
