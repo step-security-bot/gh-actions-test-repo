@@ -1,0 +1,22 @@
+name: Test Hello Action
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Message to print'
+        required: false
+        default: 'Hello from manual trigger!'
+        type: string
+
+jobs:
+  test-hello-action:
+    runs-on: ubuntu-latest
+    name: Test Hello Action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Run Hello Action
+        uses: sailikhith-stepsecurity/hello-action@v1  # Replace YOUR-USERNAME with your GitHub username
+        with:
+          message: ${{ github.event.inputs.message }}
