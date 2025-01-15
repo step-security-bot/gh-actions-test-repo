@@ -17,6 +17,6 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Run Hello Action
-        uses: sailikhith-stepsecurity/hello-action@6cbc8c0182d58a1e8564b4d2b2094d627a1d742d  # Using full SHA for immutability
+        uses: sailikhith-stepsecurity/hello-action@v1.0.1  # Using full SHA for immutability
         with:
           message: ${{ github.event.inputs.message }}
